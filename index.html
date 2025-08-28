@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,13 +14,16 @@
             margin: 40px auto;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        h1, h2 {
+
+        h1,
+        h2 {
             color: #444;
             border-bottom: 2px solid #ddd;
             padding-bottom: 10px;
         }
+
         code {
             background-color: #e8e8e8;
             padding: 2px 5px;
@@ -27,43 +31,41 @@
         }
     </style>
 </head>
+
 <body>
 
     <header>
         <h1>Práctica Formativa Obligatoria N° 1 - DevOps</h1>
-        <p>Este es el punto de partida del proyecto en la rama <code>main</code>. El objetivo de esta práctica es simular un flujo de trabajo colaborativo utilizando Git y GitHub.</p>
+        <p>Este es el punto de partida del proyecto en la rama <code>main</code>. El objetivo de esta práctica es
+            simular un flujo de trabajo colaborativo utilizando Git y GitHub.</p>
     </header>
 
-    <main>
-        <h2>Estado Actual del Proyecto</h2>
-        <p>Esta versión inicial solo contiene la estructura básica del proyecto.</p>
-        
-        <!-- 
-            INICIO DE LA ZONA DE TRABAJO PARA EL PARTICIPANTE DE UI
-            
-            Tarea para la rama 'feature/perfil-nuevo-ui':
-            1. Descomentar esta sección.
-            2. Crear un formulario (<form>) para el ingreso de datos personales.
-            3. El formulario debe incluir campos para 'nombre de usuario' y 'contraseña'.
-            4. Añadir un botón de envío.
-            5. Implementar una llamada AJAX para enviar los datos al backend (ver consigna).
-        -->
+    <h1>Registro de Usuario</h1>
 
-        <!--
-        <section id="user-profile-form">
-            <h2>Crear Nuevo Perfil de Usuario</h2>
-            <p>Por favor, ingrese sus datos a continuación.</p>
-            
-            // EL FORMULARIO VA AQUÍ //
-            
-        </section>
-        -->
+    <form id="perfilForm">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" name="nombre" placeholder="Ej: Juan" required>
 
-    </main>
+        <label for="apellido">Apellido</label>
+        <input id="apellido" name="apellido" placeholder="Ej: Pérez" required>
+
+        <label for="username">Nombre de usuario</label>
+        <input id="username" name="username" placeholder="usuario123" required>
+
+        <label for="password">Contraseña</label>
+        <input id="password" name="password" type="password" placeholder="••••••••" required>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <div id="resultado" aria-live="polite"></div>
 
     <footer>
         <p>Repositorio gestionado por: Ernesto Pisano, Facundo Villarreal, Mariano Lopez.</p>
     </footer>
 
+    <script src="main.js"></script>
+
 </body>
+
 </html>
