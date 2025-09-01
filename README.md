@@ -19,11 +19,38 @@ El proyecto se inició desde una rama `main` con una estructura base. El trabajo
 
 -   **Responsable:** Mariano Lopez
 -   **Descripción:** Se modificó el archivo `index.html` para incluir un formulario completo de registro de usuario y se creó un `script` `main.js` con la lógica `AJAX` (`fetch`) para enviar los datos del formulario de forma asíncrona.
+-   **Log de Comandos de Desarrollo (UI):**
+    ```bash
+    git clone https://github.com/facu041294/DevOps_PFO1
+    git branch feature/perfil-nuevo-ui
+    git checkout feature/perfil-nuevo-ui
+    git add .
+    git commit -m "Agregado de datos personales"
+    # (Se modifica línea del html para generar conflicto)
+    git add index.html
+    git commit -m "UI: actualiza placeholder username"
+    git push
+    ```
 
 ### 2. Desarrollo del Backend (`feature/perfil-nuevo-backend`)
 
 -   **Responsable:** Ernesto Pisano
 -   **Descripción:** Se creó un `script` de servidor `backend-handler.php` para recibir los datos enviados por el frontend vía `POST`. El `script` valida los datos recibidos y retorna una respuesta en formato `JSON`.
+-   **Log de Comandos de Desarrollo (Backend):**
+    ```bash
+    git clone https://github.com/facu041294/DevOps_PFO1
+    cd DevOps_PFO1
+    git checkout -b feature/perfil-nuevo-backend
+    git push -u origin feature/perfil-nuevo-backend
+    # (Se crea y codifica el archivo backend-handler.php)
+    git add backend-handler.php
+    git commit -m "Implement backend to receive and verify data"
+    git push
+    # (Se modifica línea del html para generar conflicto)
+    git add index.html
+    git commit -m "Generate conflict"
+    git push
+    ```
 
 ---
 
@@ -65,10 +92,25 @@ git push origin integration```
 
 ### Pull Request y Fusión Final
 
-Se creó un [Pull Request #1](https://github.com/facu041294/DevOps_PFO1/pull/1) desde la rama `integration` hacia `main`. Tras la revisión y aprobación por parte del equipo, el PR fue fusionado.
+Se creó un [Pull Request #1](https://github.com/facu041294/DevOps_PFO1/pull/1) desde la rama `integration` hacia `main`. Con espera de revisión y aprobación por parte del equipo.
 
 ### Limpieza de Ramas (`Clean up`)
 
 Como paso final y siguiendo las buenas prácticas, las ramas `feature/*` e `integration` fueron eliminadas tanto del repositorio remoto como del local, dejando la rama `main` como la única fuente de verdad con el trabajo completado.
+
+---
+
+### Incidente y Lecciones Aprendidas durante la Integración
+
+Durante la fase final de `merge`, el equipo experimentó un incidente que sirvió como un valioso caso de estudio práctico sobre la importancia de los `workflows` de `Pull Request`.
+
+**Secuencia del Incidente:**
+1.  **`Merge` Prematuro:** Durante el proceso de revisión del `Pull Request #1`, el `PR` fue fusionado accidentalmente antes de recibir todas las aprobaciones requeridas.
+2.  **Acción Correctiva Drástica:** Para intentar deshacer la fusión, se utilizó la función `Revert` de GitHub, lo que creó un nuevo `Pull Request` (`#2`) con un `commit` que revertía todos los cambios integrados.
+3.  **Intervención y Estabilización:** Como `Integrator`, se tomó control del `PR #2` de `Revert`. Se solicitó la revisión formal de los otros dos miembros del equipo.
+4.  **Resolución:** Una vez que el `PR #2` fue aprobado por todos, se fusionó a `main`, devolviendo el repositorio a su estado anterior al `merge` accidental.
+
+**Lección Aprendida Principal:**
+Este incidente demostró en la práctica el valor del **`workflow` de `Pull Request` con revisiones protegidas (`protected branches`)**. Un PR no es solo una "sugerencia", es un `firewall` que previene errores humanos y fusiones accidentales. El proceso de `review` y aprobación formal, que al principio puede parecer burocrático, es en realidad la red de seguridad que garantiza la estabilidad de la rama principal (`main`).
 
 ---
