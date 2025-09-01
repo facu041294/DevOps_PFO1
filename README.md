@@ -89,7 +89,7 @@ git commit -m "Merge: Resuelve conflicto e integra features de UI y Backend"
 
 # Subir la rama de integración a GitHub para el Pull Request
 git push origin integration```
-
+```
 ### Pull Request y Fusión Final
 
 Se creó un [Pull Request #1](https://github.com/facu041294/DevOps_PFO1/pull/1) desde la rama `integration` hacia `main`. Con espera de revisión y aprobación por parte del equipo.
